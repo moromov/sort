@@ -1,0 +1,31 @@
+uses Crt;
+const n=10;
+
+var a:array[1..n] of real;
+m,k:integer;
+glass: real;
+
+Begin
+  for k:=1 to n do
+  begin
+    GoTOXY(35,25);    readln(a[k]);
+    GoTOXY(35,25);    ClearLine;
+    GoTOXY(5*k+4,2);    writeln(a[k]:5);
+  end;
+  
+  m:= trunc(n/2);
+  for k:=1 to m do
+  begin
+    glass := a[2*k-1];
+    a[2*k-1]:= a[2*k];
+    a[2*k]:= glass;;
+  end;
+  
+  for k:=1 to n do
+  begin
+     GoToXY(5*k+4,5);
+     writeln(a[k])
+   end;
+  GoToXY(5*k+4,30);
+ 
+End.
